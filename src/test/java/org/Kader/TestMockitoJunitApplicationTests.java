@@ -65,13 +65,14 @@ public class TestMockitoJunitApplicationTests {
 		verify(userRepository,times(1)).deleteById(id);
 	}
 	
-	/*@Test 
+	@Test 
 	public void putUserTest() {
-		User user=new User("YAHYAOUI","KADER","PARIS 18");
-		Long id=1L;
-		when(userRepository.findById(id)).thenReturn(user);
-		assertEquals(1, service.putUser(user, id));	
+		Long id=2L;
+		User user=new User("YAHYAOUI","KADER","PARIS18");
+		Optional<User> op=Optional.ofNullable(user);
+		when(userRepository.findById(id)).thenReturn(op);
+		assertEquals(2,service.putUser(user, id));	
 	}
-	*/
+	
 
 }
