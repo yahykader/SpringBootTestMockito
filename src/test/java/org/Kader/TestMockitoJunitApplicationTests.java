@@ -47,7 +47,7 @@ public class TestMockitoJunitApplicationTests {
 	@Test
 	public void findUserByAddressTest() {
 		String address="PARIS18";
-		when(userRepository.findByAddress(address)).thenReturn(Stream.of(new User("YAHYAOUI","NESRINE","PARIS18")).collect(Collectors.toList()));
+		when(userRepository.findByAddress(address)).thenReturn(Stream.of(new User("YAHYAOUI","NESRINE","PARIS19")).collect(Collectors.toList()));
 		assertEquals(1, service.findUserByAdress(address).size());
 	}
 
