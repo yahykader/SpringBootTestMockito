@@ -7,13 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes="ID of the User")
 	private Long id;
+    @ApiModelProperty(notes="FirstName of the User")
 	private String firstName;
+    @ApiModelProperty(notes="LastName of the User")
 	private String lastName;
+    @ApiModelProperty(notes="Address of the User")
 	private String address;
 	
 	public User() {

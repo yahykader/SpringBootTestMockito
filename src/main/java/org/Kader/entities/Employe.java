@@ -6,13 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Employe implements Serializable{
 	
 	@Id
 	@GeneratedValue
+	@ApiModelProperty(notes="ID of the Employe")
 	private Long id;
+	@ApiModelProperty(notes="Name of the Emlpoye")
 	private String name;
+	@ApiModelProperty(notes="Departement of the Employe")
 	private String dept;
 	
 	public Employe() {
