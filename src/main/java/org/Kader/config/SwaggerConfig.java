@@ -1,10 +1,14 @@
 package org.Kader.config;
 
+import java.util.ArrayList;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -15,13 +19,27 @@ public class SwaggerConfig {
 
 	
 	   @Bean
-	    public Docket api() { 
+	    public Docket apiUser() { 
 	        return new Docket(DocumentationType.SWAGGER_2)  
 	          .select()                                  
-	          .apis(RequestHandlerSelectors.basePackage("org.kader.controller"))              
-	          .paths(PathSelectors.ant("/user.*"))  
+	          .apis(RequestHandlerSelectors.any())                
 	          .paths(PathSelectors.regex("/user.*")) 
-	          .build();                                           
+	          .build()
+	          .apiInfo(metaInfo());                                           
 	    }
+	   
+	   @SuppressWarnings("deprecation")
+	   private ApiInfo metaInfo() {
+		   return new ApiInfo("REST Api Documentation",
+				   			  "REST Api Documentation", 
+		                       "1.0", 
+		                       "urn:tos",
+		                        new Contact("kader", "YAHYAOUI", "yahyaouiabdelkader85@gmail.com"), 
+	                           "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", 
+	                            new ArrayList()<VendorExtension>()
+	                            );
+	   }		  
 
 }
+
+
