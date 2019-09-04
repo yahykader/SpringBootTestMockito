@@ -11,7 +11,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 public class User implements Serializable {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(notes="ID of the User")
 	private Long id;
